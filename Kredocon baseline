@@ -1,5 +1,26 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PCS CRM Prototype</title><style>
+<html lang="en"><head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PCS CRM Prototype</title><style>
 :root{--navy:#0b1f33;--navy2:#102b45;--gold:#b99253;--bg:#f4f5f7;--card:#fff;--muted:#6b7280;--line:#e5e7eb;--green:#198754;--amber:#d98b00;--red:#c73e3e;--blue:#3167b1}*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:#18212b}.app{display:flex;min-height:100vh}.side{width:245px;background:var(--navy);color:#fff;padding:22px 14px;position:fixed;inset:0 auto 0 0}.brand{font-size:20px;font-weight:800;padding:8px 12px 25px}.brand span{color:var(--gold)}.section{font-size:11px;color:#91a1b2;text-transform:uppercase;letter-spacing:.08em;padding:16px 12px 7px}.nav{display:flex;gap:11px;padding:10px 12px;border-radius:9px;color:#dbe4ed;cursor:pointer;margin:2px 0}.nav.active,.nav:hover{background:var(--navy2);color:#fff}.main{margin-left:245px;width:calc(100% - 245px)}.top{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px}.crumb{font-weight:700}.user{display:flex;align-items:center;gap:10px;font-size:13px}.avatar{width:34px;height:34px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:#fff;font-weight:700}.content{padding:28px 30px}.title{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.title h1{margin:0;font-size:25px}.subtitle{color:var(--muted);font-size:13px;margin-top:5px}.btn{border:0;border-radius:8px;padding:10px 15px;font-weight:700;cursor:pointer}.primary{background:var(--gold);color:#fff}.outline{background:#fff;border:1px solid var(--line)}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:24px}.card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px}.label{font-size:12px;color:var(--muted)}.num{font-size:25px;font-weight:800;margin-top:7px}.trend{font-size:11px;margin-top:5px;color:var(--green)}.panel{background:#fff;border:1px solid var(--line);border-radius:11px;overflow:hidden}.panelhead{padding:17px 19px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.panelhead h2{font-size:15px;margin:0}.tabs{display:flex;gap:4px;padding:12px 15px;border-bottom:1px solid var(--line);overflow:auto}.tab{padding:8px 12px;border-radius:7px;white-space:nowrap;font-size:12px;color:#59636e;cursor:pointer}.tab.active{background:#eef1f4;color:var(--navy);font-weight:700}.filters{display:flex;gap:9px;padding:14px 15px;background:#fafafa;border-bottom:1px solid var(--line)}input,select{border:1px solid var(--line);border-radius:7px;padding:9px 10px;background:#fff;font-size:12px}.search{flex:1}.table{width:100%;border-collapse:collapse;font-size:12px}.table th{text-align:left;color:#7b8490;font-weight:700;background:#fafafa}.table th,.table td{padding:13px 15px;border-bottom:1px solid var(--line)}.name{font-weight:700}.small{font-size:11px;color:var(--muted);margin-top:3px}.badge{display:inline-block;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:700}.gold{background:#f5ead8;color:#7d5b28}.blue{background:#e5edf9;color:#31598e}.green{background:#e3f3ea;color:#23734a}.amber{background:#fff1d7;color:#966000}.red{background:#fae6e6;color:#9c3333}.gray{background:#edf0f2;color:#5f6973}.grid2{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}.stagebar{display:flex;gap:5px;margin-top:15px}.stage{height:7px;flex:1;border-radius:8px;background:#e8eaed}.stage.done{background:var(--gold)}.leadrow{cursor:pointer}.leadrow:hover{background:#fbfcfd}@media(max-width:900px){.side{width:70px}.brand{font-size:0}.brand span{font-size:20px}.nav{font-size:0;justify-content:center}.main{margin-left:70px;width:calc(100% - 70px)}.cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.content{padding:18px}.top{padding:0 18px}}
  .bulkbar{display:flex;align-items:center;gap:10px;padding:12px 16px;background:#f8f7f3;border:1px solid var(--line);border-radius:10px;margin:0 0 12px}.bulkbar strong{margin-right:auto}.bulkbar select{padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:white}.lead-check{width:17px;height:17px;cursor:pointer}
 .product-list{display:flex;flex-direction:column}.product-row{display:grid;grid-template-columns:minmax(280px,1fr) minmax(330px,1fr);gap:24px;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}.product-row:last-child{border-bottom:0}.product-main{display:flex;align-items:flex-start;gap:14px;cursor:pointer}.product-main input{width:18px;height:18px;margin-top:2px}.product-main span{display:flex;flex-direction:column;gap:5px}.product-main strong{font-size:15px}.product-main small{color:var(--muted);line-height:1.45}.product-options select,.product-options input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:#fff}.price{font-weight:800;font-size:17px}.price span{font-size:12px;color:var(--muted);font-weight:500}.mediation-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mediation-fields label{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:5px}.product-footer{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-top:1px solid var(--line);background:#fafafa}@media(max-width:800px){.product-row{grid-template-columns:1fr}.product-options{padding-left:32px}.product-footer{gap:15px;align-items:flex-start;flex-direction:column}}
@@ -27,7 +48,77 @@
 <style>
 .readonly-term{margin-top:10px}.readonly-term label{display:block;font-size:12px;font-weight:600;margin-bottom:4px}.readonly-term input,.readonly-term-input{background:#f3f4f6;color:#4b5563;border:1px solid #d1d5db;cursor:not-allowed}.readonly-term-input{width:100%;padding:8px;border-radius:8px;font-weight:600}
 </style>
-</head><body><div id="activity-reminder-root"></div><div id="activity-modal-root"></div><div class="app"><aside class="side" id="sidebar"><button class="side-toggle" onclick="toggleSidebar()" aria-label="Collapse sidebar">‹</button><div class="brand"><div class="brand-mark">P</div><div class="brand-copy"><strong>PANDORA</strong><span>CRM</span></div></div><div class="nav-group"><div class="section" data-label="Workspace"><span>Workspace</span></div><div class="nav active" data-page="dashboard" data-label="Dashboard" onclick="show('dashboard')"><i>▦</i><span>Dashboard</span></div><div class="nav" data-page="leads" data-label="Leads" onclick="show('leads')"><i>◉</i><span>Leads</span></div><div class="nav" data-page="converted" data-label="Converted Leads" onclick="show('converted')"><i>✓</i><span>Converted Leads</span></div><div class="nav" data-page="clients" data-label="Clients" onclick="show('clients')"><i>♙</i><span>Clients</span></div><div class="nav" data-page="sales" data-label="Sales &amp; Revenue" onclick="show('sales')"><i>▤</i><span>Sales &amp; Revenue</span></div><div class="nav" data-page="activities" data-label="Activities" onclick="show('activities')"><i>◷</i><span>Activities</span></div></div><div class="nav-group"><div class="section" data-label="Operations"><span>Operations</span></div><div class="nav" data-page="documents" data-label="Documents" onclick="show('documents')"><i>▧</i><span>Documents</span></div><div class="nav" data-page="payments" data-label="Payments" onclick="show('payments')"><i>R</i><span>Payments</span></div><div class="nav" data-page="mandates" data-label="Mandates Tracking" onclick="show('mandates')"><i>↔</i><span>Mandates Tracking</span></div><div class="nav" data-page="services" data-label="Services" onclick="show('services')"><i>◈</i><span>Services</span></div></div><div class="nav-group"><div class="section" data-label="Management"><span>Management</span></div><div class="nav" data-page="reports" data-label="Reports" onclick="show('reports')"><i>▥</i><span>Reports</span></div><div class="nav" data-page="admin" data-label="Administration" onclick="show('admin')"><i>⚙</i><span>Administration</span></div></div></aside><main class="main"><header class="top"><div class="top-left"><button type="button" class="back-btn" id="backBtn" onclick="goBackFromPage()">← Back</button><div class="crumb" id="crumb">Dashboard</div></div><div class="user"><span>Super Admin</span><div class="avatar">BM</div></div></header><section class="content" id="view"></section></main></div><script>
+
+
+
+
+
+<script>
+// === KREDOCON ONE-FILE CONFIG ===
+// EDIT THESE 2 LINES WITH YOUR SUPABASE KEYS FROM SUPABASE DASHBOARD -> SETTINGS -> API
+// Or leave empty and the CRM will ask you once and save it
+window.KREDOCON_SUPABASE_URL = "https://insvyhxlrcmofevybrla.supabase.co"; // e.g. "https://xyz.supabase.co"
+window.KREDOCON_SUPABASE_ANON_KEY = "sb_publishable_CoMNUJuPwTfbATOWYnw8tQ_KhQpLAd3"; // e.g. "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+window.supabaseReady = false;
+window.supabaseClient = null;
+function getSupaConfig(){
+  // 1. Hardcoded
+  if(window.KREDOCON_SUPABASE_URL && window.KREDOCON_SUPABASE_ANON_KEY) return {url: window.KREDOCON_SUPABASE_URL, key: window.KREDOCON_SUPABASE_ANON_KEY};
+  // 2. localStorage saved
+  const url = localStorage.getItem('pcs_supabase_url');
+  const key = localStorage.getItem('pcs_supabase_key');
+  if(url && key) return {url, key};
+  return null;
+}
+async function initSupabaseOneFile(){
+  const badge = document.getElementById('supa-badge');
+  const cfg = getSupaConfig();
+  if(!cfg){
+    if(badge){ badge.textContent = '● Click to Connect Supabase'; badge.style.background = '#f59e0b'; badge.style.cursor='pointer'; badge.onclick = () => openSupaSetup(); }
+    return;
+  }
+  try{
+    window.supabaseClient = window.supabase.createClient(cfg.url, cfg.key);
+    window.supabaseReady = true;
+    if(badge){ badge.textContent = '● Connected to Supabase'; badge.style.background = '#10b981'; }
+    console.log('✅ Supabase connected (one-file)', cfg.url);
+  }catch(e){ console.error(e); if(badge){ badge.textContent = '● Connection Failed'; badge.style.background = '#ef4444'; } }
+}
+function openSupaSetup(){
+  const url = prompt('Paste your Supabase Project URL (from Supabase Dashboard > Settings > API):\n e.g. https://abcdefgh.supabase.co');
+  if(!url) return;
+  const key = prompt('Paste your Supabase ANON KEY (same page, anon public key - long eyJ... string):');
+  if(!key) return;
+  localStorage.setItem('pcs_supabase_url', url);
+  localStorage.setItem('pcs_supabase_key', key);
+  location.reload();
+}
+window.saveLeadToSupabase = async function(leadObj){
+  if(!window.supabaseClient) return {ok:false};
+  try{ const {data, error} = await window.supabaseClient.from('leads').upsert(leadObj).select(); if(error) throw error; return {ok:true, data}; }catch(e){ return {ok:false, error:e.message}; }
+}
+document.addEventListener('DOMContentLoaded', initSupabaseOneFile);
+</script>
+
+</head><body>
+<div id="kredocon-login" style="position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0b1f33,#102b45);display:flex;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#fff;border-radius:16px;padding:32px;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;"><div style="width:40px;height:40px;background:#b99253;border-radius:10px;display:grid;place-items:center;color:#fff;font-weight:900;">P</div><div><strong style="letter-spacing:.08em;">PANDORA</strong><div style="font-size:10px;letter-spacing:.18em;color:#b99253;font-weight:800;">KREDOCON CRM</div></div></div>
+    <h2 style="margin:0 0 8px;">Welcome back</h2><p style="color:#6b7280;font-size:13px;margin:0 0 20px;">Login to continue. Connected to Vercel auto-config.</p>
+    <input id="login-email" placeholder="Email" value="admin@pandora.co.za" style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:8px;margin-bottom:10px;">
+    <input id="login-pass" type="password" placeholder="Password" value="admin123" style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:8px;margin-bottom:16px;">
+    <button onclick="document.getElementById('kredocon-login').style.display='none'; localStorage.setItem('kredocon_auth','true');" style="width:100%;background:#b99253;color:#fff;border:0;padding:12px;border-radius:8px;font-weight:700;cursor:pointer;">Login → Dashboard</button>
+    <div style="margin-top:12px;font-size:11px;color:#6b7280;">Demo: admin@pandora.co.za / admin123<br><span id="supa-badge-login" style="margin-top:8px;display:inline-block;"></span></div>
+  </div>
+</div>
+<script>
+if(localStorage.getItem('kredocon_auth')==='true'){ const el=document.getElementById('kredocon-login'); if(el) el.style.display='none'; }
+</script>
+<div id="activity-reminder-root"></div><div id="activity-modal-root"></div><div class="app"><aside class="side" id="sidebar"><button class="side-toggle" onclick="toggleSidebar()" aria-label="Collapse sidebar">‹</button><div class="brand"><div class="brand-mark">P</div><div class="brand-copy"><strong>PANDORA</strong><span>CRM</span></div></div><div class="nav-group"><div class="section" data-label="Workspace"><span>Workspace</span></div><div class="nav active" data-page="dashboard" data-label="Dashboard" onclick="show('dashboard')"><i>▦</i><span>Dashboard</span></div><div class="nav" data-page="leads" data-label="Leads" onclick="show('leads')"><i>◉</i><span>Leads</span></div><div class="nav" data-page="converted" data-label="Converted Leads" onclick="show('converted')"><i>✓</i><span>Converted Leads</span></div><div class="nav" data-page="clients" data-label="Clients" onclick="show('clients')"><i>♙</i><span>Clients</span></div><div class="nav" data-page="sales" data-label="Sales &amp; Revenue" onclick="show('sales')"><i>▤</i><span>Sales &amp; Revenue</span></div><div class="nav" data-page="activities" data-label="Activities" onclick="show('activities')"><i>◷</i><span>Activities</span></div></div><div class="nav-group"><div class="section" data-label="Operations"><span>Operations</span></div><div class="nav" data-page="documents" data-label="Documents" onclick="show('documents')"><i>▧</i><span>Documents</span></div><div class="nav" data-page="payments" data-label="Payments" onclick="show('payments')"><i>R</i><span>Payments</span></div><div class="nav" data-page="mandates" data-label="Mandates Tracking" onclick="show('mandates')"><i>↔</i><span>Mandates Tracking</span></div><div class="nav" data-page="services" data-label="Services" onclick="show('services')"><i>◈</i><span>Services</span></div></div><div class="nav-group"><div class="section" data-label="Management"><span>Management</span></div><div class="nav" data-page="reports" data-label="Reports" onclick="show('reports')"><i>▥</i><span>Reports</span></div><div class="nav" data-page="admin" data-label="Administration" onclick="show('admin')"><i>⚙</i><span>Administration</span></div></div></aside><main class="main"><header class="top"><div class="top-left"><button type="button" class="back-btn" id="backBtn" onclick="goBackFromPage()">← Back</button><div class="crumb" id="crumb">Dashboard</div></div><div class="user"><span id="supa-badge" style="font-size:11px;background:#6b7280;color:#fff;padding:5px 10px;border-radius:20px;">● Checking...</span><span>Super Admin</span><div class="avatar">BM</div></div></header><section class="content" id="view"></section></main></div><script>
 function toggleSidebar(){const side=document.getElementById('sidebar');if(!side)return;side.classList.toggle('collapsed');localStorage.setItem('pcsSidebarCollapsed',side.classList.contains('collapsed')?'1':'0');}
 document.addEventListener('DOMContentLoaded',()=>{const side=document.getElementById('sidebar');if(side&&localStorage.getItem('pcsSidebarCollapsed')==='1')side.classList.add('collapsed');});
 document.addEventListener('click',e=>{const nav=e.target.closest('.nav[data-page]');if(nav){e.preventDefault();e.stopPropagation();show(nav.dataset.page);}});
@@ -457,4 +548,112 @@ history.replaceState({page:bootPage},'', '#'+bootPage);
 window.pageStack=[bootPage];
 show(bootPage,false);
 
-window.setInterval(()=>{updateActivityStatuses();updateActivityReminder()},15000);window.addEventListener('load',()=>{updateActivityStatuses();updateActivityReminder()});</script></body></html>
+window.setInterval(()=>{updateActivityStatuses();updateActivityReminder()},15000);window.addEventListener('load',()=>{updateActivityStatuses();updateActivityReminder()});</script>
+<script>
+// === FINAL SUPABASE OVERRIDE - This forces real saving ===
+(function(){
+  console.log('🔧 Final override loading...');
+  const SUPA_URL = "https://insvyhxlrcmofevybrla.supabase.co";
+  const SUPA_KEY = "sb_publishable_CoMNUJuPwTfbATOWYnw8tQ_KhQpLAd3";
+  
+  // Ensure client
+  function getClient(){
+    if(window.supabaseClient) return window.supabaseClient;
+    if(window.supabase && window.supabase.createClient){
+      try{ window.supabaseClient = window.supabase.createClient(SUPA_URL, SUPA_KEY); }catch(e){console.error(e)}
+    }
+    return window.supabaseClient;
+  }
+
+  // Real save
+  window.saveLead = async function(event){
+    event.preventDefault();
+    const client = getClient();
+    if(!client){ alert('Supabase not ready, reload'); return; }
+    const f=new FormData(event.target);
+    const data=Object.fromEntries(f.entries());
+    const titleEl=event.target.querySelector('#titleSelect');
+    if(titleEl&&!data.title) data.title=titleEl.value;
+    const editId=event.target.dataset.editId;
+    const id = editId || crypto.randomUUID();
+    const payload = {
+      id: id,
+      first_name: data.firstName || data.first_name || '',
+      surname: data.surname || '',
+      phone: data.clientPhone || data.phone || data.nokPhone || '',
+      email: data.email || '',
+      stage: 'New',
+      form_data: data,
+      created_at: new Date().toISOString()
+    };
+    console.log('Attempting Supabase insert', payload);
+    try{
+      const {data: res, error} = await client.from('leads').upsert(payload).select();
+      console.log('Supabase result', res, error);
+      if(error){
+        alert('❌ Supabase error: '+error.message+'\n\nMake sure you ran: alter table public.leads disable row level security;');
+        return;
+      }
+      // Update local
+      try{
+        if(window.leads){
+          if(editId){
+            const idx = window.leads.findIndex(x=>x[0]===editId);
+            if(idx>=0){ window.leads[idx][1]=`${payload.first_name} ${payload.surname}`; window.leads[idx][2]=payload.phone; }
+          }else{
+            window.leads.unshift([payload.id, `${payload.first_name} ${payload.surname}`, payload.phone||'—','Manual Entry','New','Unassigned']);
+          }
+        }
+        window.leadFormDataById = window.leadFormDataById || {};
+        window.leadFormDataById[id]=data;
+        window.currentLeadId=id;
+        if(event.target) event.target.dataset.editId='';
+      }catch(e){ console.error('local update err', e); }
+      alert('✅ SAVED to Supabase! ID: '+id+'\nIt will NOT disappear now.');
+      if(window.show) window.show('leads');
+      setTimeout(loadRealLeads, 500);
+    }catch(e){
+      console.error(e);
+      alert('JS Error: '+e.message);
+    }
+  };
+
+  window.loadRealLeads = async function(){
+    const client = getClient();
+    if(!client){ console.log('no client yet for load'); return; }
+    try{
+      const {data, error} = await client.from('leads').select('*').order('created_at',{ascending:false}).limit(200);
+      if(error){ console.error('Load error', error); return; }
+      console.log('Loaded real leads', data.length, data);
+      if(!data) return;
+      if(data.length===0) return; // keep demo if empty
+      // Replace global leads
+      if(window.leads){
+        window.leads.length=0;
+        data.forEach(r=>{
+          window.leads.push([r.id, `${r.first_name||''} ${r.surname||''}`.trim()||'Unnamed', r.phone||'—','Manual Entry', r.stage||'New','Unassigned']);
+          window.leadFormDataById = window.leadFormDataById || {};
+          window.leadFormDataById[r.id]=r.form_data||{firstName:r.first_name, surname:r.surname, clientPhone:r.phone};
+        });
+        // Force re-render if function exists
+        if(window.renderLeads) { try{window.renderLeads();}catch(e){} }
+        // If on leads page, re-show
+        const leadsSection = document.getElementById('leads');
+        if(leadsSection && leadsSection.style.display!=='none'){
+          if(window.show) window.show('leads');
+        }
+        console.log('Replaced leads array with', window.leads.length, 'real leads');
+      }
+    }catch(e){ console.error('loadRealLeads err', e); }
+  };
+
+  // Auto load after 1s and 3s
+  setTimeout(loadRealLeads, 1000);
+  setTimeout(loadRealLeads, 3000);
+  // Also on visibility
+  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) loadRealLeads(); });
+  console.log('🔧 Final override ready');
+})();
+</script>
+
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body></html>
